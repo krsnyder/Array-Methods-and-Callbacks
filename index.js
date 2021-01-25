@@ -7,7 +7,6 @@ import { fifaData } from './fifa.js';
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 let finals2014 = fifaData.filter(team => team.Year == 2014 && team.Stage == "Final");
 finals2014 = (finals2014[0]);
-console.log(finals2014);
 
 //(a) Home Team name for 2014 world cup final
 console.log(finals2014['Home Team Name']);
@@ -31,7 +30,7 @@ function getFinals(data) {
     return fifaData.filter(games => games.Stage == "Final");
 }
 
-
+// console.log(getFinals(fifaData));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -39,11 +38,10 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(array, callback) {
+    let years = callback(array).map(games => games['Year']);
+    return years;
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
