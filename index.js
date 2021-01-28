@@ -30,7 +30,7 @@ function getFinals(data) {
     return data.filter(games => games.Stage == "Final");
 }
 
-console.log(getFinals(fifaData));
+// console.log(getFinals(fifaData));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -82,13 +82,12 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(array, getYears, getWinners) {
-    let years = getYears(array, getFinals);
+    let years = getYears(array, getFinals); // 
     let country = getWinners(array, getFinals);
     let winString = new Array(years.length).fill(0);
     winString = winString.map((x, i) => {
         return `In ${years[i]}, ${country[i]} won the world cup!`
     });
-    // winString.forEach(i => `In ${years[i]}, ${country[i]} won the world cup!`);
     return winString;
 }
 
@@ -103,11 +102,20 @@ Use the higher order function getAverageGoals to do the following:
  
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
+// console.log(getFinals(fifaData));
+function getAverageGoals(games) {
+    return (games.reduce((acc, game) =>
+    acc + game['Home Team Goals'] + game['Away Team Goals'],0)/(games.length)).toFixed(2)
+    }
 
-function getAverageGoals(/* code here */) {
-   /* code here */
-}
 
+
+
+    // let scores = games['Home Team Goals'] + games['Away Team Goals'];
+    // console.log(typeof games[0]["Year"]);
+    // return games;
+
+getAverageGoals(getFinals(fifaData));
 
 
 
